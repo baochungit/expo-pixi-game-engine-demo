@@ -1,0 +1,1485 @@
+{
+  "frames": {
+    "CircleClippingNodeImage.png": {
+      "frame": {
+        "x": 1011,
+        "y": 637,
+        "w": 172,
+        "h": 172
+      },
+      "sourceSize": {
+        "w": 172,
+        "h": 172
+      },
+      "rotated": false
+    },
+    "Icon_app_120.png": {
+      "frame": {
+        "x": 722,
+        "y": 495,
+        "w": 120,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 120
+      },
+      "rotated": false
+    },
+    "amtra.png": {
+      "frame": {
+        "x": 59,
+        "y": 94,
+        "w": 123,
+        "h": 58
+      },
+      "sourceSize": {
+        "w": 123,
+        "h": 58
+      },
+      "rotated": false
+    },
+    "avt_frame.png": {
+      "frame": {
+        "x": 2,
+        "y": 374,
+        "w": 111,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 110
+      },
+      "rotated": false
+    },
+    "avt_frame_bg.png": {
+      "frame": {
+        "x": 1700,
+        "y": 264,
+        "w": 109,
+        "h": 108
+      },
+      "sourceSize": {
+        "w": 109,
+        "h": 108
+      },
+      "rotated": false
+    },
+    "back.png": {
+      "frame": {
+        "x": 602,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "back_press.png": {
+      "frame": {
+        "x": 948,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "btn_buy_heart.png": {
+      "frame": {
+        "x": 1068,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "btn_buy_heart_press.png": {
+      "frame": {
+        "x": 1308,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "btn_lightBlue_medium.png": {
+      "frame": {
+        "x": 831,
+        "y": 2,
+        "w": 80,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "btn_lightBlue_medium_disable.png": {
+      "frame": {
+        "x": 444,
+        "y": 2,
+        "w": 80,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "btn_lightBlue_medium_hover.png": {
+      "frame": {
+        "x": 526,
+        "y": 2,
+        "w": 80,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "btn_lightBlue_medium_press.png": {
+      "frame": {
+        "x": 608,
+        "y": 2,
+        "w": 80,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "btn_no_text.png": {
+      "frame": {
+        "x": 375,
+        "y": 94,
+        "w": 205,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 205,
+        "h": 70
+      },
+      "rotated": false
+    },
+    "btn_no_text_press.png": {
+      "frame": {
+        "x": 582,
+        "y": 94,
+        "w": 205,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 205,
+        "h": 70
+      },
+      "rotated": false
+    },
+    "btn_upd_avatar.png": {
+      "frame": {
+        "x": 691,
+        "y": 169,
+        "w": 78,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 78,
+        "h": 78
+      },
+      "rotated": false
+    },
+    "btn_upd_avatar_press.png": {
+      "frame": {
+        "x": 771,
+        "y": 169,
+        "w": 78,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 78,
+        "h": 78
+      },
+      "rotated": false
+    },
+    "busy_indicator.png": {
+      "frame": {
+        "x": 597,
+        "y": 264,
+        "w": 100,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 100,
+        "h": 100
+      },
+      "rotated": false
+    },
+    "buy_butt.png": {
+      "frame": {
+        "x": 1548,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "buy_buttpress.png": {
+      "frame": {
+        "x": 1668,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "cauhoa_butt.png": {
+      "frame": {
+        "x": 1670,
+        "y": 94,
+        "w": 90,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 90,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "cauhoa_butt_disable.png": {
+      "frame": {
+        "x": 185,
+        "y": 169,
+        "w": 90,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 90,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "cauhoa_butt_press.png": {
+      "frame": {
+        "x": 2,
+        "y": 169,
+        "w": 90,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 90,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "cdtime.png": {
+      "frame": {
+        "x": 1451,
+        "y": 264,
+        "w": 109,
+        "h": 108
+      },
+      "sourceSize": {
+        "w": 109,
+        "h": 108
+      },
+      "rotated": false
+    },
+    "change_name.png": {
+      "frame": {
+        "x": 2,
+        "y": 94,
+        "w": 55,
+        "h": 55
+      },
+      "sourceSize": {
+        "w": 55,
+        "h": 55
+      },
+      "rotated": false
+    },
+    "chat_butt.png": {
+      "frame": {
+        "x": 1428,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "chat_butt_press.png": {
+      "frame": {
+        "x": 708,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "circle_red.png": {
+      "frame": {
+        "x": 1490,
+        "y": 39,
+        "w": 48,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 48,
+        "h": 48
+      },
+      "rotated": false
+    },
+    "close_butt.png": {
+      "frame": {
+        "x": 889,
+        "y": 94,
+        "w": 71,
+        "h": 72
+      },
+      "sourceSize": {
+        "w": 71,
+        "h": 72
+      },
+      "rotated": false
+    },
+    "close_butt_press.png": {
+      "frame": {
+        "x": 962,
+        "y": 94,
+        "w": 71,
+        "h": 72
+      },
+      "sourceSize": {
+        "w": 71,
+        "h": 72
+      },
+      "rotated": false
+    },
+    "de_1_tapsu.png": {
+      "frame": {
+        "x": 160,
+        "y": 637,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "de_2_phongtrao.png": {
+      "frame": {
+        "x": 476,
+        "y": 637,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "de_3_kythu.png": {
+      "frame": {
+        "x": 318,
+        "y": 637,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "de_4_kysi.png": {
+      "frame": {
+        "x": 2,
+        "y": 637,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "de_5_kyvuong.png": {
+      "frame": {
+        "x": 1590,
+        "y": 495,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "default_avatar.jpg": {
+      "frame": {
+        "x": 851,
+        "y": 169,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false
+    },
+    "elo_CT.png": {
+      "frame": {
+        "x": 409,
+        "y": 2,
+        "w": 33,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 33,
+        "h": 30
+      },
+      "rotated": false
+    },
+    "elo_CU.png": {
+      "frame": {
+        "x": 374,
+        "y": 2,
+        "w": 33,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 33,
+        "h": 30
+      },
+      "rotated": false
+    },
+    "elo_icon.png": {
+      "frame": {
+        "x": 1007,
+        "y": 39,
+        "w": 38,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 38,
+        "h": 42
+      },
+      "rotated": false
+    },
+    "elo_icon1.png": {
+      "frame": {
+        "x": 964,
+        "y": 39,
+        "w": 41,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 41,
+        "h": 41
+      },
+      "rotated": false
+    },
+    "eye.png": {
+      "frame": {
+        "x": 1267,
+        "y": 39,
+        "w": 67,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 67,
+        "h": 43
+      },
+      "rotated": false
+    },
+    "facebook_butt.png": {
+      "frame": {
+        "x": 497,
+        "y": 264,
+        "w": 98,
+        "h": 99
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 99
+      },
+      "rotated": false
+    },
+    "facebook_butt_press.png": {
+      "frame": {
+        "x": 397,
+        "y": 264,
+        "w": 98,
+        "h": 99
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 99
+      },
+      "rotated": false
+    },
+    "friends_butt.png": {
+      "frame": {
+        "x": 1188,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "friends_butt_press.png": {
+      "frame": {
+        "x": 828,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "heart.png": {
+      "frame": {
+        "x": 269,
+        "y": 94,
+        "w": 104,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 70
+      },
+      "rotated": false
+    },
+    "heart_ingame.png": {
+      "frame": {
+        "x": 789,
+        "y": 94,
+        "w": 98,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 71
+      },
+      "rotated": false
+    },
+    "heart_no_plus.png": {
+      "frame": {
+        "x": 184,
+        "y": 94,
+        "w": 83,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 83,
+        "h": 70
+      },
+      "rotated": false
+    },
+    "hourglass.png": {
+      "frame": {
+        "x": 933,
+        "y": 39,
+        "w": 29,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 29,
+        "h": 40
+      },
+      "rotated": false
+    },
+    "khu_status_waitting.png": {
+      "frame": {
+        "x": 277,
+        "y": 169,
+        "w": 412,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 412,
+        "h": 75
+      },
+      "rotated": false
+    },
+    "khu_vuc_avatar.png": {
+      "frame": {
+        "x": 634,
+        "y": 637,
+        "w": 375,
+        "h": 158
+      },
+      "sourceSize": {
+        "w": 375,
+        "h": 158
+      },
+      "rotated": false
+    },
+    "khu_vuc_heart.png": {
+      "frame": {
+        "x": 1363,
+        "y": 169,
+        "w": 105,
+        "h": 90
+      },
+      "sourceSize": {
+        "w": 105,
+        "h": 90
+      },
+      "rotated": false
+    },
+    "khu_vuc_item_setting.png": {
+      "frame": {
+        "x": 631,
+        "y": 39,
+        "w": 300,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 300,
+        "h": 40
+      },
+      "rotated": false
+    },
+    "khu_vuc_rank.png": {
+      "frame": {
+        "x": 1748,
+        "y": 495,
+        "w": 156,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 140
+      },
+      "rotated": false
+    },
+    "mail_butt.png": {
+      "frame": {
+        "x": 1443,
+        "y": 2,
+        "w": 49,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 49,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "menu_butt.png": {
+      "frame": {
+        "x": 1788,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "menu_butt_press.png": {
+      "frame": {
+        "x": 588,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "menu_frame.png": {
+      "frame": {
+        "x": 1133,
+        "y": 495,
+        "w": 455,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 455,
+        "h": 132
+      },
+      "rotated": false
+    },
+    "menu_frame_ig_small.png": {
+      "frame": {
+        "x": 844,
+        "y": 495,
+        "w": 287,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 287,
+        "h": 132
+      },
+      "rotated": false
+    },
+    "more_item_chat.png": {
+      "frame": {
+        "x": 1279,
+        "y": 169,
+        "w": 82,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 82,
+        "h": 82
+      },
+      "rotated": false
+    },
+    "music_off_butt.png": {
+      "frame": {
+        "x": 1717,
+        "y": 39,
+        "w": 53,
+        "h": 53
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 53
+      },
+      "rotated": false
+    },
+    "music_off_ig_butt.png": {
+      "frame": {
+        "x": 1126,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "music_off_view_butt.png": {
+      "frame": {
+        "x": 482,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "music_on_butt.png": {
+      "frame": {
+        "x": 1772,
+        "y": 39,
+        "w": 53,
+        "h": 53
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 53
+      },
+      "rotated": false
+    },
+    "music_on_ig_butt.png": {
+      "frame": {
+        "x": 1488,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "music_on_view_butt.png": {
+      "frame": {
+        "x": 242,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "name_frame.png": {
+      "frame": {
+        "x": 1047,
+        "y": 39,
+        "w": 218,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 218,
+        "h": 43
+      },
+      "rotated": false
+    },
+    "out_butt.png": {
+      "frame": {
+        "x": 1307,
+        "y": 94,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "out_butt_press.png": {
+      "frame": {
+        "x": 1217,
+        "y": 94,
+        "w": 88,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 88,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "pointtime.png": {
+      "frame": {
+        "x": 344,
+        "y": 2,
+        "w": 28,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 30
+      },
+      "rotated": false
+    },
+    "qc.png": {
+      "frame": {
+        "x": 699,
+        "y": 264,
+        "w": 750,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 750,
+        "h": 100
+      },
+      "rotated": false
+    },
+    "qctext.png": {
+      "frame": {
+        "x": 933,
+        "y": 169,
+        "w": 208,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 208,
+        "h": 82
+      },
+      "rotated": false
+    },
+    "sansang.png": {
+      "frame": {
+        "x": 162,
+        "y": 39,
+        "w": 109,
+        "h": 39
+      },
+      "sourceSize": {
+        "w": 109,
+        "h": 39
+      },
+      "rotated": false
+    },
+    "sao1vang.png": {
+      "frame": {
+        "x": 1343,
+        "y": 2,
+        "w": 98,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "sao2vang.png": {
+      "frame": {
+        "x": 1594,
+        "y": 2,
+        "w": 98,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "sao3den.png": {
+      "frame": {
+        "x": 1694,
+        "y": 2,
+        "w": 98,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "sao3vang.png": {
+      "frame": {
+        "x": 1494,
+        "y": 2,
+        "w": 98,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 98,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "setting_butt.png": {
+      "frame": {
+        "x": 362,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "setting_butt_press.png": {
+      "frame": {
+        "x": 122,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "setting_fb_butt.png": {
+      "frame": {
+        "x": 1444,
+        "y": 39,
+        "w": 44,
+        "h": 44
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "rotated": false
+    },
+    "setting_frame.png": {
+      "frame": {
+        "x": 1185,
+        "y": 637,
+        "w": 309,
+        "h": 447
+      },
+      "sourceSize": {
+        "w": 309,
+        "h": 447
+      },
+      "rotated": false
+    },
+    "setting_frame_2.png": {
+      "frame": {
+        "x": 1496,
+        "y": 637,
+        "w": 309,
+        "h": 525
+      },
+      "sourceSize": {
+        "w": 309,
+        "h": 525
+      },
+      "rotated": false
+    },
+    "setting_line.png": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 258,
+        "h": 3
+      },
+      "sourceSize": {
+        "w": 258,
+        "h": 3
+      },
+      "rotated": false
+    },
+    "share_butt.png": {
+      "frame": {
+        "x": 2,
+        "y": 495,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "share_butt_press.png": {
+      "frame": {
+        "x": 348,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "sl_quanan.png": {
+      "frame": {
+        "x": 314,
+        "y": 2,
+        "w": 28,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 28
+      },
+      "rotated": false
+    },
+    "small_info_frame.png": {
+      "frame": {
+        "x": 1336,
+        "y": 39,
+        "w": 106,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 106,
+        "h": 43
+      },
+      "rotated": false
+    },
+    "sound_off_butt.png": {
+      "frame": {
+        "x": 1827,
+        "y": 39,
+        "w": 53,
+        "h": 53
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 53
+      },
+      "rotated": false
+    },
+    "sound_off_ig_butt.png": {
+      "frame": {
+        "x": 1397,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "sound_on_butt.png": {
+      "frame": {
+        "x": 1662,
+        "y": 39,
+        "w": 53,
+        "h": 53
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 53
+      },
+      "rotated": false
+    },
+    "sound_on_ig_butt.png": {
+      "frame": {
+        "x": 1035,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "star_1.png": {
+      "frame": {
+        "x": 285,
+        "y": 2,
+        "w": 27,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 27,
+        "h": 25
+      },
+      "rotated": false
+    },
+    "start_butt.png": {
+      "frame": {
+        "x": 2,
+        "y": 264,
+        "w": 250,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 250,
+        "h": 93
+      },
+      "rotated": false
+    },
+    "start_butt_press.png": {
+      "frame": {
+        "x": 1470,
+        "y": 169,
+        "w": 250,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 250,
+        "h": 93
+      },
+      "rotated": false
+    },
+    "switch_butt.png": {
+      "frame": {
+        "x": 228,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "switch_butt_press.png": {
+      "frame": {
+        "x": 468,
+        "y": 374,
+        "w": 118,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 119
+      },
+      "rotated": false
+    },
+    "task.png": {
+      "frame": {
+        "x": 1143,
+        "y": 169,
+        "w": 134,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 134,
+        "h": 82
+      },
+      "rotated": false
+    },
+    "task_khung_noidung.png": {
+      "frame": {
+        "x": 254,
+        "y": 264,
+        "w": 141,
+        "h": 98
+      },
+      "sourceSize": {
+        "w": 141,
+        "h": 98
+      },
+      "rotated": false
+    },
+    "task_thanh_tientrinh.png": {
+      "frame": {
+        "x": 2,
+        "y": 39,
+        "w": 158,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 158,
+        "h": 38
+      },
+      "rotated": false
+    },
+    "task_tientrinh.png": {
+      "frame": {
+        "x": 262,
+        "y": 2,
+        "w": 21,
+        "h": 23
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 23
+      },
+      "rotated": false
+    },
+    "text_NVTiepTheo.png": {
+      "frame": {
+        "x": 1057,
+        "y": 2,
+        "w": 142,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 142,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "text_nhiemVu.png": {
+      "frame": {
+        "x": 913,
+        "y": 2,
+        "w": 142,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 142,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "title_cotuong.png": {
+      "frame": {
+        "x": 690,
+        "y": 2,
+        "w": 139,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 139,
+        "h": 32
+      },
+      "rotated": false
+    },
+    "title_coup.png": {
+      "frame": {
+        "x": 1201,
+        "y": 2,
+        "w": 140,
+        "h": 35
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 35
+      },
+      "rotated": false
+    },
+    "top_rank.png": {
+      "frame": {
+        "x": 1562,
+        "y": 264,
+        "w": 136,
+        "h": 108
+      },
+      "sourceSize": {
+        "w": 136,
+        "h": 108
+      },
+      "rotated": false
+    },
+    "vibration_butt_off.png": {
+      "frame": {
+        "x": 1601,
+        "y": 39,
+        "w": 59,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 52
+      },
+      "rotated": false
+    },
+    "vibration_butt_on.png": {
+      "frame": {
+        "x": 1540,
+        "y": 39,
+        "w": 59,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 52
+      },
+      "rotated": false
+    },
+    "wait_player.png": {
+      "frame": {
+        "x": 115,
+        "y": 374,
+        "w": 111,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 110
+      },
+      "rotated": false
+    },
+    "xem_ngay_butt.png": {
+      "frame": {
+        "x": 273,
+        "y": 39,
+        "w": 177,
+        "h": 39
+      },
+      "sourceSize": {
+        "w": 177,
+        "h": 39
+      },
+      "rotated": false
+    },
+    "xemngay_butt_press.png": {
+      "frame": {
+        "x": 452,
+        "y": 39,
+        "w": 177,
+        "h": 39
+      },
+      "sourceSize": {
+        "w": 177,
+        "h": 39
+      },
+      "rotated": false
+    },
+    "xinthua_butt.png": {
+      "frame": {
+        "x": 1762,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "xinthua_butt_disable.png": {
+      "frame": {
+        "x": 94,
+        "y": 169,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    },
+    "xinthua_butt_press.png": {
+      "frame": {
+        "x": 1579,
+        "y": 94,
+        "w": 89,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 73
+      },
+      "rotated": false
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "format": "RGBA8888",
+    "version": "1.0",
+    "image": "main_screen.png",
+    "size": {
+      "w": 1908,
+      "h": 1164
+    },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:673fcca61c55e8cca6cf83c83af8905b:ab97ecbc7a4a7ad5445f1907392ec9b7:cc1ef88fe67b54bd04e3a89545867cd1$"
+  }
+}

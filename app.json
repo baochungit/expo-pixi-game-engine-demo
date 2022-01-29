@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Expo-Pixi-Game-Engine-Demo",
+    "slug": "expo-pixi-game-engine-demo",
+    "description": "This is just a demo for using as a template to develop your game.",
+    "privacy": "unlisted",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#000000",
+    "splash": {
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "androidStatusBar": {
+      "hidden": true,
+      "backgroundColor": "#000"
+    },
+    "androidNavigationBar": {
+      "visible": "sticky-immersive"
+    },
+  }
+}
