@@ -1,10 +1,9 @@
 import { PIXI } from 'libs/expo-pixi';
 
 import { GameScene, GameButton } from 'utils/Game';
-import Sound from 'utils/Sound';
+import * as Sound from 'utils/Sound';
 
 import Background from './Background';
-import ChatButton from './ChatButton';
 
 
 export default class LobbyScene extends GameScene {
@@ -38,34 +37,6 @@ export default class LobbyScene extends GameScene {
       }
     });
 
-    // add open chat popup button
-    const openChatPopupButton = new ChatButton({
-      position: [ 150, sceneSize.height - 100 ],
-      texture: PIXI.Texture.fromFrame('chat_butt.png'),
-      texturePressed: PIXI.Texture.fromFrame('chat_butt_press.png'),
-      onClick: () => {
-        Sound.playSound('click');
-      }
-    });
-
-    // add open friend popup button
-    const openFriendPopupButton = new GameButton({
-      position: [ 300, sceneSize.height - 100 ],
-      texture: PIXI.Texture.fromFrame('friends_butt.png'),
-      texturePressed: PIXI.Texture.fromFrame('friends_butt_press.png'),
-      onClick: () => {
-        Sound.playSound('click');
-      }
-    });
-    // add open share button
-    const openShareButton = new GameButton({
-      position: [ 450, sceneSize.height - 100 ],
-      texture: PIXI.Texture.fromFrame('share_butt.png'),
-      texturePressed: PIXI.Texture.fromFrame('share_butt_press.png'),
-      onClick: () => {
-        Sound.playSound('click');
-      }
-    });
     // add open settings button
     const openSettingsButton = new GameButton({
       position: [ 600, sceneSize.height - 100 ],
@@ -80,9 +51,6 @@ export default class LobbyScene extends GameScene {
       background,
       playButton,
       playCUButton,
-      openChatPopupButton,
-      openFriendPopupButton,
-      openShareButton,
       openSettingsButton,
     });
   }

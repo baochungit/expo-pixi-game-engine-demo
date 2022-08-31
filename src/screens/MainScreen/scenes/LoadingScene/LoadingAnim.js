@@ -29,11 +29,11 @@ export default class LoadingAnim extends GameObject {
     sprite.animationSpeed = 0.5;
     sprite.play();
 
-    this.add('sprite', sprite);
+    await this.addChildren({ sprite });
   }
 
   update(delta) {
-    const sprite = this.get('sprite');
+    const { sprite } = this.getChildren();
     if (sprite) {
       sprite.rotation += 0.01 * delta;
     }

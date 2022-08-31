@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Splash from 'expo-splash-screen';
 
-
 import MainScreen from 'screens/MainScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -22,13 +21,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="MainScreen" headerMode="none" >
-            <Stack.Screen name="MainScreen" component={MainScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="MainScreen" headerMode="none" >
+          <Stack.Screen name="MainScreen" component={MainScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }

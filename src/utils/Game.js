@@ -1,6 +1,8 @@
 import { PIXI } from 'libs/expo-pixi';
-import { Ease } from 'pixi-ease';
-import Sound from 'utils/Sound';
+import * as Sound from 'utils/Sound';
+import Layout from 'utils/Layout';
+import * as Pixi from 'utils/Pixi';
+
 
 
 export const SceneState = {
@@ -33,6 +35,7 @@ export class GameObject {
   constructor(props = {}) {
     this.props = props;
     this.gameScene = null;
+    this.parent = null;
     this._children = {};
     this._container = new PIXI.SortableContainer();
     this.initialized = false;
@@ -52,14 +55,22 @@ export class GameObject {
     if (!this.gameScene) {
       throw new Error('GameObject must have `gameScene` property');
     }
+    this.parent = parent;
 
     await this.setup();
-    this._onUpdateProps(this.props);
+    this.onUpdateProps(this.props);
     this.initialized = true;
   }
 
-  async setup() {
+  async liberalInit(gameScene, container) {
+    this.gameScene = gameScene;
+    container.addChild(this._container);
+    await this.setup();
+    this.onUpdateProps(this.props);
+    this.initialized = true;
   }
+
+  async setup() {}
 
   set zOrder(value) {
     this._container.zOrder = value;
@@ -73,28 +84,39 @@ export class GameObject {
     for (const propName in props) {
       this.props[propName] = props[propName];
     }
-    this._onUpdateProps(props);
+    this.onUpdateProps(props);
   }
 
-  _onUpdateProps = (props) => {};
+  onUpdateProps(props) {}
 
-  add(name, displayObject) {
-    const { sceneContainer } = this.gameScene;
+  async addChild(name, displayObject) {
+    if (displayObject instanceof GameObject) {
+      if (!displayObject.initialized) {
+        await displayObject.init(this);
+      } else if (displayObject.parent !== this) {
+        throw new Error('GameObject was added to a different one');
+      }
+    } else {
+      this._container.addChild(displayObject);
+    }
     this._children[name] = displayObject;
-    this._container.addChild(displayObject);
   }
 
-  get(name) {
+  getChild(name) {
     if (this._children[name] !== undefined) {
       return this._children[name];
     }
     return null;
   }
 
-  remove(name) {
+  removeChild(name) {
     if (this._children[name] !== undefined) {
       const displayObject = this._children[name];
-      this._container.removeChild(displayObject);
+      if (displayObject instanceof GameObject) {
+        this._container.removeChild(displayObject._container);
+      } else {
+        this._container.removeChild(displayObject);
+      }
       displayObject.destroy();
       delete this._children[name];
     }
@@ -104,9 +126,13 @@ export class GameObject {
     return this._container;
   }
 
-  addChildren(displayObjects) {
+  getSceneEase() {
+    return this.gameScene.ease;
+  }
+
+  async addChildren(displayObjects) {
     for (const name in displayObjects) {
-      this.add(name, displayObjects[name]);
+      await this.addChild(name, displayObjects[name]);
     }
   }
 
@@ -114,11 +140,15 @@ export class GameObject {
     return this._children;
   }
 
-  update(delta) {
-    // this._container.sortChildren();
-  }
+  update(delta) {}
 
   destroy() {
+    for (const name in this._children) {
+      const displayObject = this.getChild(name);
+      if (displayObject) {
+        displayObject.destroy();
+      }
+    }
     this._container.destroy();
   }
 }
@@ -141,9 +171,7 @@ export class GameScene {
     this.sceneSwitcher = sceneSwitcher;
     this.sceneContainer = sceneContainer;
     this.params = params;
-    this.ease = new Ease({
-      ticker: this.app.ticker
-    });
+    this.ease = Pixi.Ease(this.app.ticker);
   }
 
   setOnEnterTransition(onEnterSceneTransition) {
@@ -166,14 +194,13 @@ export class GameScene {
   sceneUpdate(delta) {
   }
 
-  onSceneReady() {
-  }
+  async onSceneSetup() {}
 
-  onSceneActive() {
-  }
+  onSceneReady() {}
 
-  onSceneDone() {
-  }
+  onSceneActive() {}
+
+  onSceneDone() {}
 
   setListener(eventName, func) {
     this._listeners[eventName] = func;
@@ -185,21 +212,21 @@ export class GameScene {
     }
   }
 
-  async add(name, gameObject) {
+  async addChild(name, gameObject) {
     this._children[name] = gameObject;
     if (!gameObject.initialized) {
       await gameObject.init(this);
     }
   }
 
-  get(name) {
+  getChild(name) {
     if (this._children[name] !== undefined) {
       return this._children[name];
     }
     return null;
   }
 
-  remove(name) {
+  removeChild(name) {
     if (this._children[name] !== undefined) {
       const gameObject = this._children[name];
       gameObject.destroy();
@@ -209,7 +236,7 @@ export class GameScene {
 
   async addChildren(gameObjects) {
     for (const name in gameObjects) {
-      await this.add(name, gameObjects[name]);
+      await this.addChild(name, gameObjects[name]);
     }
   }
 
@@ -224,8 +251,22 @@ export class GameScene {
     return { width: appWidth, height: appHeight };
   }
 
+  getSceneRatio() {
+    const { renderer } = this.app;
+    return renderer.height / renderer.width;
+  }
+
+  getScaleRatio(factor = 0.5) {
+    const ratio = this.getSceneRatio() * factor;
+    return ratio <= 1.0 ? ratio : 1.0;
+  }
+
+  getScreenRatio() {
+    const { width, height } = this.getSize();
+    return { X: Layout.SCREEN_WIDTH / width, Y: Layout.ACTUAL_HEIGHT / height };
+  }
+
   update(delta) {
-    // this.sceneContainer.sortChildren();
     switch (this.sceneState) {
       case SceneState.INITIAL:
         const initialized = () => {
@@ -248,6 +289,7 @@ export class GameScene {
       case SceneState.FINALIZE:
         const finalized = () => {
           this.sceneState = SceneState.DONE;
+          this.ease.destroy();
           this.onSceneDone();
           if (typeof this._listeners['onSceneDone'] === 'function') {
             this._listeners['onSceneDone'].call();
@@ -270,6 +312,12 @@ export class GameScene {
   }
 
   destroy() {
+    for (const name in this._children) {
+      const gameObject = this.getChild(name);
+      if (gameObject) {
+        gameObject.destroy();
+      }
+    }
     this.sceneContainer.destroy();
   }
 
@@ -292,10 +340,10 @@ export class GameEngine {
       scene = this.createScene(sceneTemplates[0].name);
     }
     if (scene) {
-      this.setupScene(scene, settings.initalSceneParams || {}).then(() => {
+      this.setupScene(scene, settings.initialSceneParams || {}).then(() => {
         scene.gameScene.sceneContainer.zOrder = 1;
-        this.currentScene = scene;
         scene.gameScene.onSceneReady();
+        this.currentScene = scene;
       });
     }
   }
@@ -315,18 +363,17 @@ export class GameEngine {
     return null;
   }
 
-  sceneSwitcher(sceneName, params = {}) {
+  async sceneSwitcher(sceneName, params = {}) {
     const scene = this.createScene(sceneName);
     if (scene) {
-      this.setupScene(scene, params).then(() => {
-        this.currentScene.gameScene.setFinalizing(() => {
-          const lastScene = this.currentScene;
-          this.currentScene = scene;
-          scene.gameScene.sceneContainer.zOrder = 1;
-          lastScene.gameScene.sceneContainer.zOrder = 0;
-          scene.gameScene.onSceneReady();
-          lastScene.gameScene.destroy();
-        });
+      await this.setupScene(scene, params);
+      this.currentScene.gameScene.setFinalizing(() => {
+        const lastScene = this.currentScene;
+        this.currentScene = scene;
+        scene.gameScene.sceneContainer.zOrder = 1;
+        lastScene.gameScene.sceneContainer.zOrder = 0;
+        scene.gameScene.onSceneReady();
+        lastScene.gameScene.destroy();
       });
     } else {
       console.error('SCENE NOT FOUND: ' + sceneName);
@@ -343,6 +390,7 @@ export class GameEngine {
       sceneContainer,
       params
     );
+    await gameScene.onSceneSetup();
     if (scene.onEnterSceneTransition) {
       await scene.onEnterSceneTransition.init(this.app, sceneContainer);
       gameScene.setOnEnterTransition(scene.onEnterSceneTransition);
@@ -355,7 +403,6 @@ export class GameEngine {
   }
 
   update(delta) {
-    // this.engineContainer.sortChildren();
     if (this.currentScene) {
       this.currentScene.gameScene.update(delta);
     }
@@ -476,58 +523,20 @@ export class SimpleFadeOutTransition extends GameSceneTransition {
 
 export class GameButton extends GameObject {
   constructor(props) {
-    props.visible = props.visible || true;
+    props.visible = props.visible ?? true;
+    props.disabled = props.disabled ?? false;
     super(props);
   }
 
   async setup() {
-    const { texture, texturePressed, onClick } = this.props;
-
+    const { texture, scale } = this.props;
     const sprite = PIXI.Sprite.from(texture);
     sprite.anchor.set(0.5);
-    sprite.interactive = true;
-    sprite.buttonMode = true;
-
-    let oldMoveIn = false;
-    let hasTouchStart = false;
-    sprite.on('touchstart', () => {
-      hasTouchStart = true;
-      oldMoveIn = true;
-      if (texturePressed !== undefined) {
-        sprite.texture = texturePressed;
-      }
-    });
-    sprite.on('touchmove', (event) => {
-      if (!hasTouchStart) return;
-      const point = event.data.global;
-      const moveIn = event.currentTarget == sprite && sprite.containsPoint(point);
-      if (moveIn != oldMoveIn) {
-        oldMoveIn = moveIn;
-        if (moveIn) {
-          if (texturePressed !== undefined) {
-            sprite.texture = texturePressed;
-          }
-        } else {
-          sprite.texture = texture;
-        }
-      }
-    });
-    sprite.on('touchendoutside', () => {
-      hasTouchStart = false;
-    });
-    sprite.on('tap', () => {
-      if (!hasTouchStart) return;
-      sprite.texture = texture;
-      oldMoveIn = false;
-      hasTouchStart = false;
-      if (typeof onClick == 'function') {
-        onClick();
-      }
-    });
-
-    this.addChildren({
-      sprite
-    });
+    if (scale != undefined) {
+      sprite.scale.set(scale);
+    }
+    Pixi.setButtonBehaviour(sprite, this.props);
+    await this.addChildren({ sprite });
   }
 
   get position() {
@@ -544,9 +553,16 @@ export class GameButton extends GameObject {
     this.setProps({ visible });
   }
 
-  _onUpdateProps = (props) => {
+  get disabled() {
+    return this.props.disabled;
+  }
+  set disabled(disabled) {
+    this.setProps({ disabled });
+  }
+
+  onUpdateProps(props) {
     const container = this.getContainer();
-    const { visible, position } = props;
+    const { visible, position, disabled } = props;
 
     if (position !== undefined) {
       const [ x, y ] = position;
@@ -556,5 +572,9 @@ export class GameButton extends GameObject {
     if (visible !== undefined) {
       container.visible = visible;
     }
-  };
+
+    if (disabled !== undefined) {
+      container.alpha = disabled ? 0.5 : 1;
+    }
+  }
 }

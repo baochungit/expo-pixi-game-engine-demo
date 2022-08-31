@@ -1,30 +1,52 @@
 import { Audio } from 'expo-av';
+import Data from './Data';
 
-let soundOn = true;
-let backgroundMusicOn = true;
+
+const namespace = 'Sound';
+
+const fields = {
+  soundOn: true,
+  backgroundMusicOn: true,
+};
+
+Data.init(namespace, fields);
+
 let backgroundMusicObject = null;
-
 const sounds = {};
 
-const isSoundOn = () => {
-  return soundOn;
+export const init = async () => {
+  await Audio.setAudioModeAsync({
+    playsInSilentModeIOS: false,
+    allowsRecordingIOS: false,
+    staysActiveInBackground: false,
+    shouldDuckAndroid: true,
+    playThroughEarpieceAndroid: false,
+  });
 };
 
-const setSoundOn = (on) => {
-  soundOn = on;
+export const isSoundOn = () => {
+  return Data.getField(namespace, 'soundOn');
 };
 
-const playSound = async (name) => {
-  if (soundOn) {
+export const setSoundOn = (soundOn) => {
+  Data.setFields(namespace, { soundOn });
+};
+
+export const playSound = async (name) => {
+  if (isSoundOn()) {
     play(name);
   }
 };
 
-const setBackgroundMusicOn = async (on) => {
-  backgroundMusicOn = on;
+export const isBackgroundMusicOn = () => {
+  return Data.getField(namespace, 'backgroundMusicOn');
+};
+
+export const setBackgroundMusicOn = async (backgroundMusicOn) => {
+  Data.setFields(namespace, { backgroundMusicOn });
   try {
     if (backgroundMusicObject) {
-      if (on) {
+      if (backgroundMusicOn) {
         await backgroundMusicObject.setPositionAsync(0);
         await backgroundMusicObject.playAsync();
       } else {
@@ -36,14 +58,18 @@ const setBackgroundMusicOn = async (on) => {
   }
 };
 
-const playBackgroundMusic = async (name) => {
+export const playBackgroundMusic = async (name) => {
   if (backgroundMusicObject) {
-    await stopBackgroundMusic();
+    if (isBackgroundMusicOn()) {
+      await backgroundMusicObject.playAsync();
+    }
+    return;
+    // await stopBackgroundMusic();
   }
-  backgroundMusicObject = await play(name, true, backgroundMusicOn);
+  backgroundMusicObject = await play(name, true, isBackgroundMusicOn());
 };
 
-const stopBackgroundMusic = async () => {
+export const stopBackgroundMusic = async () => {
   try {
     if (backgroundMusicObject) {
       await backgroundMusicObject.stopAsync();
@@ -55,17 +81,21 @@ const stopBackgroundMusic = async () => {
   }
 };
 
-const load = async (name, resource) => {
+export const load = async (name, resource) => {
+  if (name != 'theme') {
+    const soundObject = new Audio.Sound();
+    soundObject.loadAsync(resource);
+  }
   sounds[name] = resource;
 };
 
-const unload = (name) => {
+export const unload = (name) => {
   if (sounds[name] !== undefined) {
     delete sounds[name];
   }
 };
 
-const play = async (name, loop = false, surePlay = true) => {
+export const play = async (name, loop = false, surePlay = true) => {
   if (sounds[name] !== undefined) {
     const soundObject = new Audio.Sound();
     try {
@@ -89,16 +119,4 @@ const play = async (name, loop = false, surePlay = true) => {
     return soundObject;
   }
   return null;
-};
-
-export default {
-  load,
-  unload,
-  play,
-  isSoundOn,
-  setSoundOn,
-  playSound,
-  setBackgroundMusicOn,
-  playBackgroundMusic,
-  stopBackgroundMusic
 };

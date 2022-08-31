@@ -9,6 +9,7 @@ import { PIXI } from 'libs/expo-pixi';
 import { GLView } from 'expo-gl';
 
 import { GameEngine, SimpleFadeInTransition, SimpleFadeOutTransition } from 'utils/Game';
+import Layout from 'utils/Layout';
 
 import LoadingScene from './scenes/LoadingScene';
 import LobbyScene from './scenes/LobbyScene';
@@ -38,14 +39,9 @@ const main = async (context) => {
 };
 
 
-export default class MainScreen extends Component {
+class MainScreen extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      screen: null,
-      elements: []
-    };
 
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -73,13 +69,6 @@ export default class MainScreen extends Component {
     this.extras = React.createRef();
   }
 
-  _onLayout = (event) => {
-    const { x: left, y: top, width, height } = event.nativeEvent.layout;
-    if (!this.state.screen) {
-      this.setState({ screen: { left, top, width, height } });
-    }
-  };
-
   _emit = (type, event) => {
     const { interaction } = this.app.renderer.plugins;
     interaction.interactionDOMElement.emitter.emit(type, event);
@@ -95,11 +84,14 @@ export default class MainScreen extends Component {
       event[prop] = nativeEvent[prop];
     }
 
+    const ratioY = Layout.WINDOW_HEIGHT / Layout.ACTUAL_HEIGHT;
+    event.locationY = event.locationY * ratioY;
     event.clientX = event.locationX;
     event.clientY = event.locationY;
     for (let i = 0; i < event.touches.length; i++) {
       const touch = event.touches[i];
       if (touch.clientX == undefined) {
+        touch.locationY = touch.locationY * ratioY;
         touch.clientX = touch.locationX;
         touch.clientY = touch.locationY;
       }
@@ -107,6 +99,7 @@ export default class MainScreen extends Component {
     for (let i = 0; i < event.changedTouches.length; i++) {
       const touch = event.changedTouches[i];
       if (touch.clientX == undefined) {
+        touch.locationY = touch.locationY * ratioY;
         touch.clientX = touch.locationX;
         touch.clientY = touch.locationY;
       }
@@ -116,14 +109,11 @@ export default class MainScreen extends Component {
   }
 
   render() {
-    const { screen } = this.state;
     return (
-      <View style={styles.container} onLayout={this._onLayout}>
-        {screen ? 
+      <View style={styles.container}>
         <GLView
-          style={[styles.glview, screen]}
+          style={styles.glview}
           onContextCreate={async (context) => {
-            // let's start the app
             this.app = await main(context);
             this.app.handler = this;
             // to fix issue of getting BoundingClientRect
@@ -131,18 +121,24 @@ export default class MainScreen extends Component {
             interaction.interactionDOMElement.parentElement = {};
           }}
           {...this.panResponder.panHandlers}
-        /> : null}
+        />
       </View>
     );
   }
 }
+export default MainScreen;
 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'black'
   },
   glview: {
     position: 'absolute',
+    left: 0,
+    top: 0,
+    width: Layout.WINDOW_WIDTH,
+    height: Layout.ACTUAL_HEIGHT
   }
 });

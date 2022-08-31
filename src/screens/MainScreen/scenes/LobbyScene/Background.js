@@ -1,7 +1,5 @@
-import { PIXI } from 'libs/expo-pixi';
 import { GameObject } from 'utils/Game';
-
-import backgroundRes from 'assets/images/lobby-background-01.jpg';
+import * as Pixi from 'utils/Pixi';
 
 
 export default class Background extends GameObject {
@@ -11,17 +9,17 @@ export default class Background extends GameObject {
 
   async setup() {
     const sceneSize = this.gameScene.getSize();
-    const sprite = await PIXI.Sprite.fromExpoAsync(backgroundRes);
+    const sprite = await Pixi.Sprite(require('assets/images/lobby-background-01.jpg'), true);
     const ratio = sceneSize.height / sprite.height;
     sprite.scale.set(ratio, ratio);
     sprite.anchor.set(0.5);
     sprite.position.set(sceneSize.width / 2, sceneSize.height / 2);
-    this.add('sprite', sprite);
+    await this.addChildren({ sprite });
 
-    const text = new PIXI.extras.BitmapText('This is a bitmap text', { font: '72px Tahoma' });
+    const text = Pixi.BitmapText('This is a bitmap text', { font: '72px Tahoma' });
     text.tint = 0xff0000;
     text.anchor.set(0.5, 0);
     text.position.set(sceneSize.width / 2, 300);
-    this.add('text', text);
+    await this.addChildren({ text });
   }
 }

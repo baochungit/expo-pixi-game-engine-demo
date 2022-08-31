@@ -3,5 +3,5 @@ This is just a demo of how to develop a game with Expo & Pixi. You can clone it 
 
 **Notes:**
 
-- The Expo-Pixi & Browser-Polyfill packages using in this project are modified.
-- It's tested & working with Expo SDK 44, Pixi.js v4.
+- The Expo-Pixi package using in this project is modified.
+- It's tested & working with Expo SDK 45, Pixi.js v4.

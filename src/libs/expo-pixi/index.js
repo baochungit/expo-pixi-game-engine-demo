@@ -1,22 +1,34 @@
-import 'libs/browser-polyfill';
+import '@expo/browser-polyfill';
+import * as FileSystem from 'expo-file-system';
+import { Image } from 'react-native';
+import * as Utils from 'utils';
 
+
+// touches
+class TouchEvent {
+  constructor() {
+    this.clientX = 0;
+    this.clientY = 0;
+    this.touches = [];
+  }
+  preventDefault() {}
+  stopPropagation() {}
+}
+window.TouchEvent = TouchEvent;
+window.ontouchstart = {};
+
+import * as filters from 'pixi-filters'; 
 import * as PixiInstance from 'pixi.js';
-import {
-  Platform,
-  Dimensions,
-  PixelRatio
-} from 'react-native';
-import { resolveAsync } from 'expo-asset-utils';
+import { Platform, Dimensions, PixelRatio } from 'react-native';
+import { Asset } from 'expo-asset';
 
-
-global.PIXI = global.PIXI || null;
+global.PIXI = global.PIXI || PixiInstance;
 
 export let PIXI = global.PIXI;
 
-import 'libs/pixi-sortable-container';
-
-import * as filters from 'pixi-filters';
 PIXI.filters = { ...(PIXI.filters || {}), ...filters };
+
+import 'libs/pixi-sortable-container';
 
 
 class Application extends PIXI.Application {
@@ -38,7 +50,7 @@ class Application extends PIXI.Application {
       };
     }
 
-    const defaultScale = PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width) / 750;
+    const defaultScale = PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width) / 746;
     const resolution = scale || defaultScale;
     super({
       context,
@@ -55,10 +67,69 @@ class Application extends PIXI.Application {
 const isAsset = input => {
   return (
     input &&
-    typeof input.width === 'number' &&
-    typeof input.height === 'number' &&
+    // typeof input.width === 'number' &&
+    // typeof input.height === 'number' &&
     typeof input.localUri === 'string'
   );
+};
+
+const fbProfilePictureCache = {};
+const assetFromFBProfilePicture = async (uri) => {
+  const params = Utils.urlParams(uri);
+  if (fbProfilePictureCache[params.asid]) {
+    return fbProfilePictureCache[params.asid];
+  }
+  const asset = new Asset({
+    name: `fb-profilepic-${params.asid}`,
+    type: 'png',
+    hash: params.hash,
+    uri,
+    width: null,
+    height: null,
+  });
+  const localUri = `${FileSystem.cacheDirectory}${asset.name}-${asset.hash}.${asset.type}`;
+  const fileInfo = await FileSystem.getInfoAsync(localUri, { size: false });
+  if (!fileInfo.exists) {
+    await FileSystem.downloadAsync(uri, localUri);
+  }
+  Image.getSize(localUri, (width, height) => {
+    asset.width = width;
+    asset.height = height;
+  });
+  await Utils.sleepUntil(() => asset.width);
+  asset.downloaded = true;
+  asset.localUri = localUri;
+  fbProfilePictureCache[params.asid] = asset;
+  return asset;
+};
+
+const loadAsset = async (resource) => {
+  let asset = null;
+  try {
+    if (typeof resource == 'string') {
+      const params = Utils.urlParams(resource);
+      if (params.asid && params.hash) {
+        asset = await assetFromFBProfilePicture(resource);
+      }
+    } else {
+      asset = await Asset.fromModule(resource).downloadAsync();
+      if (asset.localUri.startsWith('file://')) {
+        return asset;
+      }
+      const localUri = `${FileSystem.cacheDirectory}ExponentAsset-${asset.hash}.${asset.type}`;
+      const fileInfo = await FileSystem.getInfoAsync(localUri, { size: false });
+      if (!fileInfo.exists) {
+        await FileSystem.copyAsync({
+          from: asset.localUri,
+          to: localUri,
+        });
+      }
+      asset.localUri = localUri;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  return asset;
 };
 
 if (!(PIXI.Application instanceof Application)) {
@@ -67,7 +138,7 @@ if (!(PIXI.Application instanceof Application)) {
   const textureFromExpoAsync = async resource => {
     let asset = resource;
     if (Platform.OS !== 'web') {
-      asset = await resolveAsync(resource);
+      asset = await loadAsset(resource);
     }
     return PIXI.Texture.from(asset);
   };
